@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environmrnt {
+    environment {
         PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
     }
     stages {
@@ -16,9 +16,9 @@ pipeline {
             }
         }   
  
-        stage("SpnarQube analysis")
+        stage("SpnarQube analysis") {
         
-        steps {
+            steps {
         withSonarQubeEnv("sonarqube-8.9") {
         sh "mvn sonar:sonar"
     }        
