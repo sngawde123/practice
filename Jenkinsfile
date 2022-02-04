@@ -1,18 +1,30 @@
 pipeline {
     agent any
-
+    environmrnt {
+        PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
+    }
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        
-        stage('Pull from Github') {
+        stage('GetCode') {
             steps {
                 echo 'https://github.com/sngawde123/practice.git'
             }
-        }   
+        }
         
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }   
+ 
+        stage("SpnarQube analysis")
+        
+        steps {
+        withSonarQubeEnv("sonarqube-8.9") {
+        sh "mvn sonar:sonar"
+    }        
+        }
+        
+        }
+            
     }
 }
