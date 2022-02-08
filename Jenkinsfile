@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('GetCode') {
             steps {
-                echo 'https://github.com/sngawde123/practice.git'
+                echo 'https://github.com/ravdy/javaloginapp.git'
             }
         }
         
@@ -19,7 +19,7 @@ pipeline {
         stage("SpnarQube analysis") {
         
             steps {
-        withSonarQubeEnv("sonarqube-8.9") {
+        withSonarQubeEnv("sonarqube-8.9.2") {
         sh "mvn sonar:sonar"
     }        
         }
