@@ -24,8 +24,6 @@ pipeline {
                 }
             }
             }
-            }   
-
             stage("SpnarQube analysis") {
 
             steps {
