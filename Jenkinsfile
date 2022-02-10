@@ -13,15 +13,9 @@ pipeline {
       
                 steps {
                 script {
-                try {
+             
                     sh 'mvn clean package'
-               
-                } catch (err) {
-                  mail bcc: '', body: 'Job is failed', cc: '', from: '', replyTo: '', subject: 'Build Failed', to: 'snehalgawde724@gmail.com'
-                  throw err 
-                } finally {
-                  mail bcc: '', body: 'Job is successful', cc: '', from: '', replyTo: '', subject: 'Build Success', to: 'snehalgawde724@gmail.com'
-                    }         
+                     
             }
             }
             }
@@ -40,4 +34,9 @@ pipeline {
             }
                 
         }
+    post {
+        success{script{mail bcc: '', body: 'Job is successful', cc: '', from: '', replyTo: '', subject: 'Build Success', to: 'snehalgawde724@gmail.com'}}
+        failure{ script{mail bcc: '', body: 'Job is failed', cc: '', from: '', replyTo: '', subject: 'Build Failed', to: 'snehalgawde724@gmail.com'}}
+        
+    }
 }
