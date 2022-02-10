@@ -5,6 +5,7 @@ pipeline {
         }
         node {
             try {
+                notifyBuild('STARTED')
                  stages {
                     stage('GetCode') {
                         steps {
@@ -32,10 +33,13 @@ pipeline {
                         }
                     }
                 }
-                    echo 'Build Success'
-            } catch (err) {
-                    mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'snehalgawde724@gmail.com'
-            echo "Failed: ${err}"
+            } catch (e) {
+            
+            currentBuild.result = "FAILED"
+              throw e
+            } finally {
+              
+              notifyBuild(currentBuild.result)
             }
         }
 }
