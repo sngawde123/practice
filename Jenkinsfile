@@ -16,7 +16,7 @@ pipeline {
                 try {
                     sh 'mvn clean package'
                
-                } catch (e) {
+                } catch (err) {
                   mail bcc: '', body: 'Job is failed', cc: '', from: '', replyTo: '', subject: 'Build Failed', to: 'snehalgawde724@gmail.com'
                  
                 } 
