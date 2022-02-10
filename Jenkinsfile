@@ -36,5 +36,6 @@ pipeline {
                 mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'snehalgawde724@gmail.com'
         echo "Failed: ${err}"
                     
+        }
     }
 }
