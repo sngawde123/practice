@@ -3,7 +3,7 @@ pipeline {
         environment {
             PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
         }
-    try{
+    try {
         stages {
             stage('GetCode') {
                 steps {
