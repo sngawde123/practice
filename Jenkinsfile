@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    try{
         environment {
             PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
         }
+    try{
         stages {
             stage('GetCode') {
                 steps {
