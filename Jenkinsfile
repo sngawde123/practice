@@ -17,8 +17,8 @@ pipeline {
                     sh 'mvn clean package'
                
                 } catch (e) {
-                  mail bcc: '', body: '$(err)', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'snehalgawde724@gmail.com'
-                  throw e
+                  mail bcc: '', body: 'Job is failed', cc: '', from: '', replyTo: '', subject: 'Build Failed', to: 'snehalgawde724@gmail.com'
+                 
                 } 
             }
             }
