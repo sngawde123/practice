@@ -31,11 +31,11 @@ pipeline {
                     mail bcc: '', body: 'Hello', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'snehalgawde724@gmail.com'
                 }
             }
+        }
             echo 'Build Success'
-            } catch (err) {
+    } catch (err) {
                 mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'snehalgawde724@gmail.com'
         echo "Failed: ${err}"
                     
-        }
     }
 }
