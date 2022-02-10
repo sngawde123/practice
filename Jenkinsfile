@@ -10,10 +10,11 @@ pipeline {
                 }
             }
             stage('Build') {
-            node {
+      
+                steps {
+                node {
                 try {
                   notifyBuild('STARTED')
-                steps {
                     sh 'mvn clean package'
                 }
                 } catch (e) {
