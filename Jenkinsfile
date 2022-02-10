@@ -16,13 +16,14 @@ pipeline {
                 try {
                   notifyBuild('STARTED')
                     sh 'mvn clean package'
-                }
+               
                 } catch (e) {
                   currentBuild.result = "Failed"
                   throw e
                 } finally {
                   notifyBuild(currentBuild.result)
                 }
+            }
             }
             }
             stage("SpnarQube analysis") {
