@@ -12,7 +12,7 @@ pipeline {
             stage('Build') {
       
                 steps {
-                node {
+                script {
                 try {
                   notifyBuild('STARTED')
                     sh 'mvn clean package'
