@@ -14,7 +14,7 @@ pipeline {
                 steps {
                 script {
                 try {
-                    sh 'mvn clean packages'
+                    sh 'mvn clean package'
                
                 } catch (err) {
                   mail bcc: '', body: 'Job is failed', cc: '', from: '', replyTo: '', subject: 'Build Failed', to: 'snehalgawde724@gmail.com'
