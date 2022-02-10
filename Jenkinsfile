@@ -25,7 +25,7 @@ pipeline {
         }
         
         }
-        stage("Email Notifications") {
+        stage('Email Notifications') {
             mail bcc: '', body: 'Hello', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'snehalgawde724@gmail.com'
             
         }
