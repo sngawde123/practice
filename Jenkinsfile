@@ -5,13 +5,12 @@ pipeline {
         }
         node {
             try {
+                 stages {
                     stage('GetCode') {
                         steps {
                             echo 'https://github.com/ravdy/javaloginapp.git'
                         }
                     }
-
-                stages {
                     stage('Build') {
                         steps {
                             sh 'mvn clean package'
