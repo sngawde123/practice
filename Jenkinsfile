@@ -14,15 +14,12 @@ pipeline {
                 steps {
                 script {
                 try {
-                  notifyBuild('STARTED')
                     sh 'mvn clean package'
                
                 } catch (e) {
-                  currentBuild.result = "Failed"
+                  mail bcc: '', body: '$(err)', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'snehalgawde724@gmail.com'
                   throw e
-                } finally {
-                  notifyBuild(currentBuild.result)
-                }
+                } 
             }
             }
             }
