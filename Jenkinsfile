@@ -45,7 +45,7 @@ Build Number: (${env.BUILD_NUMBER})
 Pipeline Name: ${env.JOB_NAME}
 
 Thanks,
-DevOps Team''', cc: '', from: '', replyTo: '', subject: 'Build Status: "Build Successful Job \'${env.JOB_NAME}\' (${env.BUILD_NUMBER})"', to: 'snehalgawde724@gmail.com'
+DevOps Team''', cc: '', from: '', replyTo: '', subject: 'Build Status: "Build Failed Job \'${env.JOB_NAME}\' (${env.BUILD_NUMBER})"', to: 'snehalgawde724@gmail.com'
             }
         }
         
