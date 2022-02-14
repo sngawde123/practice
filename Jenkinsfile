@@ -4,6 +4,11 @@ pipeline {
         PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
     }
     stages {
+        stage("list env vars") {
+            steps {
+                sh "printenv | sort"
+            }
+        }
         stage('Build') {
             steps {
                 script {
