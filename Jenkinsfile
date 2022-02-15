@@ -32,7 +32,7 @@ pipeline {
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
                 to: "snehalgawde724@gmail.com",
-                mimeType: 'text/html',
+                mimeType: 'text/html'
             }
         }
         failure {
@@ -42,9 +42,10 @@ pipeline {
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
                 to: "snehalgawde724@gmail.com",
-                mimeType: 'text/html',
+                mimeType: 'text/html'
             }
         }
         
     }
 }
+s
