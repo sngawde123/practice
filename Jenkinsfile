@@ -31,7 +31,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status = ${env.BUILD_STATUS} ${env.JOB_NAME} ${env.BUILD_NUMBER}", 
-                to: "snehalgawde724@gmail.com"
+                to: "snehalgawde1997@gmail.com"
             }
         }
         failure {
@@ -40,7 +40,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status = ${env.BUILD_STATUS} ${env.JOB_NAME} ${env.BUILD_NUMBER}", 
-                to: "snehalgawde724@gmail.com"
+                to: "snehalgawde1997@gmail.com"
           
             }
         }
