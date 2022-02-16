@@ -25,6 +25,7 @@ pipeline {
             }
         }                
     }
+    if ["${params.Email_Enable}" = "true"]; then
     post {
         success {
             script{
@@ -48,4 +49,6 @@ pipeline {
         }
         
     }
+    else echo "Please enable the email"
 }
+
