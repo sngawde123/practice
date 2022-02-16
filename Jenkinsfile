@@ -25,7 +25,7 @@ pipeline {
             }
         }                
     }
-    if (${params.Email_Enable} == "true") {
+    if ("${params.Email_Enable}" == "true") {
         post {
             success {
                 script{
