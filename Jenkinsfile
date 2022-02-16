@@ -1,6 +1,6 @@
+properties([parameters([string(defaultValue: 'snehalgawde1997@gmail.com', description: 'Enter Recipient email ids', name: 'Recipient IDs')])])
 pipeline {
     agent any
-    properties([parameters([string(defaultValue: 'snehalgawde1997@gmail.com', description: 'Enter Recipient email ids', name: 'Recipient IDs')])])
     environment {
         PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
     }
