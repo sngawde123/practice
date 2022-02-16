@@ -1,4 +1,4 @@
-properties([parameters([string(defaultValue: 'snehalgawde1997@gmail.com', description: 'Enter Recipient email ids', name: 'Recipient IDs')])])
+properties([parameters([string(defaultValue: 'snehalgawde1997@gmail.com', description: 'Enter Recipient email ids', name: 'Recipient_IDs')])])
 pipeline {
     agent any
     environment {
@@ -42,7 +42,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                to: "${params.Recipient IDs}"
+                to: "${params.Recipient_IDs}"
                 mimeType: 'text/html'
             }
         }
