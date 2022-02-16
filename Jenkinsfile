@@ -1,4 +1,4 @@
-properties([parameters([string(description: 'Enter recipient email address', name: 'Recipient_IDs'), booleanParam(description: 'Email', name: 'Email_Enable')])])
+properties([parameters([booleanParam('Email_Enable'), string(description: 'Enter recipient email address', name: 'Recipient_IDs')])])
 pipeline {
     agent any
     environment {
