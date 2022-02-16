@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    properties([parameters([string(defaultValue: 'snehalgawde1997@gmail.com', description: 'Enter Recipient email ids', name: 'Recipient IDs')])])
     environment {
         PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
     }
@@ -31,7 +32,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                to: ${Recipient IDs},
+                to: "${params.Recipient IDs}"
                 mimeType: 'text/html'
             }
         }
@@ -41,7 +42,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                to: ${Recipient IDs},
+                to: "${params.Recipient IDs}"
                 mimeType: 'text/html'
             }
         }
