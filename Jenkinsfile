@@ -1,4 +1,4 @@
-properties([parameters([string(defaultValue: '', description: 'Enter Recipient email ids', name: 'Recipient_IDs')])])
+properties([parameters([string(description: 'Enter recipient email address', name: 'Recipient_IDs')])])
 pipeline {
     agent any
     environment {
