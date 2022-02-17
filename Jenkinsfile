@@ -31,7 +31,6 @@ pipeline {
     post {
         success {
             script{
-                email = (params.Recipient_IDs == "true") ? "${params.Recipient_IDs}" : "No mail"
                 color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                 fullDisplayName = "${currentBuild.fullDisplayName}"
                 result = "${currentBuild.result}"
