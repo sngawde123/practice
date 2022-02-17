@@ -39,7 +39,7 @@ pipeline {
                 buildNumber = "${currentBuild.number}"
                 htmlBodyHead = '''<!DOCTYPE html><html><title>Build Notification</title><head><meta name="viewport" content="width=500, initial-scale=1"></head>'''
                 htmlBody = '''<body><div class="card" style="width: 95%;text-align: center;border: 4px solid ''' + color +'''">  
-                                    <div class="alert alert-success" style="text-align: center;color: ''' + color + '''"><h1><span class="tag">''' + result + '''</span></h1></div>
+                                    <div class="alert alert-success" style="text-align: center;color: ''' + color + '''"><h1>''' + result + '''</h1></div>
                                     <div class="container">
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipeline Details: ''' + fullDisplayName + '''</h2>
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h2>
@@ -61,7 +61,7 @@ pipeline {
                 buildNumber = "${currentBuild.number}"
                 htmlBodyHead = '''<!DOCTYPE html><html><title>Build Notification</title><head><meta name="viewport" content="width=500, initial-scale=1"></head>'''
                 htmlBody = '''<body><div class="card" style="width: 95%;text-align: center;border: 4px solid ''' + color +'''">  
-                                    <div class="alert alert-failure" style="text-align: center;color: ''' + color + '''"><h1><span class="tag">''' + result + '''</span></h1></div>
+                                    <div class="alert alert-failure" style="text-align: center;color: ''' + color + '''"><h1>''' + result + '''</h1></div>
                                     <div class="container">
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipeline Details: ''' + fullDisplayName + '''</h2>
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h2>
