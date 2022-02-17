@@ -61,10 +61,9 @@ pipeline {
                     <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbspPipeline Details: ''' + fullDisplayName + '''</h4>
                     <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h4>
                     <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a><href="''' + buildUrl + '''" style="background-color: white;color: black;border: 2px solid ''' + color + ''';padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;">Click Here To See The Full Log</a></h4></div><br/></div></body></html>'''
-
                 emailext attachLog: true, 
-                body: htmlBodyHead + htmlBody
-                subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
+                body: htmlBodyHead + htmlBody,
+                subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
                 to: "${params.Recipient_IDs}"
                 mimeType: 'text/html'
             }
