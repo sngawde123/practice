@@ -54,13 +54,13 @@ pipeline {
                 result = "${currentBuild.result}"
                 buildUrl = "${env.BUILD_URL}"
                 buildNumber = "${currentBuild.number}"
-                htmlBodyHead = '''<!DOCTYPE html><html><title>Build Notification</title><head><meta name="viewport" content="width=device-width, initial-scale=1"></head>'''
-                htmlBody = '''<body><div class="card" style="width: 100%;text-align: center;border: 2px solid ''' + color +''';"> <br>
-                    <div class="status" style="background-color: ''' + color + ''';text-align: center;color: white;"><h1>''' + result + '''</h1></div>
-                    <div class="container" style="padding: 2px 16px;">
-                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbspPipeline Details: ''' + fullDisplayName + '''</h4>
-                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h4>
-                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a><href="''' + buildUrl + '''" style="background-color: white;color: black;border: 2px solid ''' + color + ''';padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;">Click Here To See The Full Log</a></h4></div><br/></div></body></html>'''
+                htmlBodyHead = '''<!DOCTYPE html><html><title>Build Notification</title><head><meta name="viewport" content="width=500, initial-scale=1"></head>'''
+                htmlBody = '''<body><div class="card" style="width: 100%;text-align: center;border: 4px solid ''' + color +''';">  
+                                    <div class="alert alert-failure" style="text-align: center"><h1>''' + result + '''</h1></div>
+                                    <div class="container">
+                                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipeline Details: ''' + fullDisplayName + '''</h2>
+                                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h2>
+                                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="''' + buildUrl + '''">Click here for the Build Logs</a></h2></div></div></body></html>'''
                 emailext attachLog: true, 
                 body: htmlBodyHead + htmlBody,
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
