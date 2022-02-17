@@ -44,7 +44,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                to: "${params.Email_Enable}","${params.Recipient_IDs}"
+                to: "${params.Recipient_IDs}","${params.Email_Enable}"
                 mimeType: 'text/html'
             }
         }
