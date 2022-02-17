@@ -3,6 +3,8 @@ pipeline {
     agent any
     environment {
         PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
+        EMAIL_ENABLE = "${(params.Email_Enable) ? 't' : 'f'}"
+        EMAIL_NOT_ENABLE = "${(!params.Email_Enable) ? 't' : 'f'}"
     }
     stages {
         stage("list env vars") {
@@ -42,7 +44,7 @@ pipeline {
                 emailext attachLog: true, 
                 body: emailBody, 
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                to: "${params.Recipient_IDs}"
+                to: "${params.Email_Enable}","${params.Recipient_IDs}"
                 mimeType: 'text/html'
             }
         }
