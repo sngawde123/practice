@@ -60,7 +60,7 @@ pipeline {
                                     <div class="container">
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipeline Details: ''' + fullDisplayName + '''</h2>
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h2>
-                                    <div class="button" style=""background-color: ''' + color +''';padding: 14px 25px;text-align: center";text-decoration: none; display: inline-block><h4><a href=""''' + buildUrl + '''">Click here for the Build Logs</a></h4></div></div></div></body></html>'''
+                                    <div class="container" style=""background-color: ''' + color +''';padding: 14px 25px;text-align: center";text-decoration: none; display: inline-block><h4><a href=""''' + buildUrl + '''">Click here for the Build Logs</a></h4></div></div></div></body></html>'''
                 emailext attachLog: true, 
                 body: htmlBodyHead + htmlBody,
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
