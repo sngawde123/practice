@@ -27,6 +27,7 @@ pipeline {
             }
         }                
     }
+    email = "${params.Recipient_IDs}" == true ? "${params.Recipient_IDs}" : "No mail"
     post {
         success {
             script{
