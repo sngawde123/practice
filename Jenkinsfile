@@ -55,12 +55,12 @@ pipeline {
                 buildUrl = "${env.BUILD_URL}"
                 buildNumber = "${currentBuild.number}"
                 htmlBodyHead = '''<!DOCTYPE html><html><title>Build Notification</title><head><meta name="viewport" content="width=500, initial-scale=1"></head>'''
-                htmlBody = '''<body><div class="card" style="width: 80%;text-align: center;border: 4px solid ''' + color +'''">  
+                htmlBody = '''<body><div class="card" style="width: 95%;text-align: center;border: 4px solid ''' + color +'''">  
                                     <div class="alert alert-failure" style="text-align: center;color: ''' + color + '''"><h1><span class="tag">''' + result + '''</span></h1></div>
                                     <div class="container">
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipeline Details: ''' + fullDisplayName + '''</h2>
                                     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h2>
-                                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="''' + buildUrl + '''">Click here for the Build Logs</a></h2></div></div></body></html>'''
+                                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="''' + buildUrl + '''" class="btn">Click here for the Build Logs</a></h2></div></div></body></html>'''
                 emailext attachLog: true, 
                 body: htmlBodyHead + htmlBody,
                 subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
