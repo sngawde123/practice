@@ -1,4 +1,4 @@
-properties([parameters([booleanParam('Email_Enable'), string(description: 'Enter recipient email address', name: 'Recipient_IDs')])])
+properties([parameters([booleanParam('SEND_EMAIL'), string(description: 'Enter recipient email address', name: 'Recipient_IDs')])])
 pipeline {
     agent any
     environment {
@@ -31,7 +31,7 @@ pipeline {
     post {
         success {
             script{
-                email = ("${params.Recipient_IDs}" == "true") ? "${params.Recipient_IDs}" : "No mail"
+               
                 color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                 fullDisplayName = "${currentBuild.fullDisplayName}"
                 result = "${currentBuild.result}"
@@ -53,8 +53,7 @@ pipeline {
         }
         failure {
             script {
-                email = ("${params.Recipient_IDs}" == "TRUE") ? "${params.Recipient_IDs}" : "No mail"
-                color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
+
                 fullDisplayName = "${currentBuild.fullDisplayName}"
                 result = "${currentBuild.result}"
                 buildUrl = "${env.BUILD_URL}"
