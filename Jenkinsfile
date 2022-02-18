@@ -31,7 +31,7 @@ pipeline {
     post {
         success {
             script{
-               
+                
                 color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                 fullDisplayName = "${currentBuild.fullDisplayName}"
                 result = "${currentBuild.result}"
@@ -53,7 +53,8 @@ pipeline {
         }
         failure {
             script {
-
+                
+                color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                 fullDisplayName = "${currentBuild.fullDisplayName}"
                 result = "${currentBuild.result}"
                 buildUrl = "${env.BUILD_URL}"
