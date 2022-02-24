@@ -29,7 +29,6 @@ pipeline {
                                     submitter: 'Snehal',
                                     parameters: [
                                         [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name:'env'],
-                                        [$class: 'TextParameterDefinition', description: 'Target', name:'target']
                                     ]
                 
                     echo ("Submitted by: "+userInput['submitter'])
