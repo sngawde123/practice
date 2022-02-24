@@ -94,7 +94,7 @@ pipeline {
                                         <div class="alert alert-failure" style="text-align: center;color: ''' + color + '''"><h1>''' + result + '''</h1></div>
                                         <div class="container">
                                         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipeline Details: ''' + fullDisplayName + '''</h2>
-                                        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uild Number: ''' + buildNumber + '''</h2>
+                                        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build Number: ''' + buildNumber + '''</h2>
                                         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="''' + buildUrl + '''" style="background-color: ''' + color +''';color: white;border: 2px solid ''' + color + ''';padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;">Click here for the Build Logs</a></h2></div></div></body></html>'''
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
