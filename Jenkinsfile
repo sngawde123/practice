@@ -37,7 +37,7 @@ pipeline {
         success {
             script{
                 IS_EMAIL_ENABLED = "${params.SEND_EMAIL}"
-                    if(IS_EMAIL_ENABLED == true) {
+                    if(IS_EMAIL_ENABLED == "true") {
                     color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                     fullDisplayName = "${currentBuild.fullDisplayName}"
                     result = "${currentBuild.result}"
@@ -61,7 +61,7 @@ pipeline {
         failure {
             script {
                 IS_EMAIL_ENABLED = "${params.SEND_EMAIL}"
-                if(IS_EMAIL_ENABLED == true) {
+                if(IS_EMAIL_ENABLED == "true") {
                     color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                     fullDisplayName = "${currentBuild.fullDisplayName}"
                     result = "${currentBuild.result}"
