@@ -74,7 +74,7 @@ pipeline {
                                         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="''' + buildUrl + '''" style="background-color: ''' + color +''';color: white;border: 2px solid ''' + color + ''';padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;">Click here for the Build Logs</a></h2></div></div></body></html>'''
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
-                    subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
+                    subject: "Current Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
                     to: "${params.Recipient_IDs}"
                     mimeType: 'text/html'
                 }
