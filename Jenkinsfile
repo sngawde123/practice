@@ -16,11 +16,11 @@ pipeline {
             }
         }
         stage("Approval") {
-            script{ emailBody = "Hi Sender,\nPlease go to the console output of ${env.BUILD_URL} to approve or reject the build\nBuild Number:${env.BUILD_NUMBER}\nJob Name: ${env.JOB_NAME}\nThanks,\nDevOps Team"
-            body: emailBody, 
-            subject: "Build Approval Request || Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-            to: "snehalgawde724@gmail.com",
-            mimeType: 'text/html'
+            emailBody = "Hi Sender,\nPlease go to the console output of ${env.BUILD_URL} to approve or reject the build\nBuild Number:${env.BUILD_NUMBER}\nJob Name: ${env.JOB_NAME}\nThanks,\nDevOps Team"
+            emailext body: emailBody, 
+                     subject: "Build Approval Request || Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
+                     to: "snehalgawde724@gmail.com",
+                     mimeType: 'text/html'
 
             def userInput = input id: 'userInput',
                             message: 'Do you want to approve?',
@@ -33,7 +33,6 @@ pipeline {
             echo ("Env: "+userInput['env'])
             echo ("Target: "+userInput['target']) 
             echo ("Submitted by: "+userInput['submitter'])
-            }
         }
         stage('Build') {
             steps {
