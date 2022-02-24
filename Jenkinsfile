@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     emailext body: ''''<a href="${BUILD_URL}input"> Click here to approve</a>''', 
-                            subject: "Build Approval Request || Build Number : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
+                            subject: "Build Approval Request || Pipeline Details: ${currentBuild.fullDisplayName}", 
                             to: "snehalgawde724@gmail.com",
                             mimeType: 'text/html'
 
@@ -31,8 +31,7 @@ pipeline {
                                         [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name:'env'],
                                         [$class: 'TextParameterDefinition', description: 'Target', name:'target']
                                     ]
-                    echo ("Env: "+userInput['env'])
-                    echo ("Target: "+userInput['target']) 
+                
                     echo ("Submitted by: "+userInput['submitter'])
                 }
             }
