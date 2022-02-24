@@ -103,8 +103,8 @@ pipeline {
                     subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
                     to: "${params.Recipient_IDs}"
                     mimeType: 'text/html'
+                }
             }
-        }
-    }   
-}
-
+        }   
+    }
+}   
