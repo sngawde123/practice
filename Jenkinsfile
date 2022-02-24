@@ -18,8 +18,7 @@ pipeline {
         stage("Approval") {
             steps {
                 script {
-                    emailBody = "Hi Sender,\nPlease go to the console output of ${env.BUILD_URL} to approve or reject the build\nBuild Number:${env.BUILD_NUMBER}\nJob Name: ${env.JOB_NAME}\nThanks,\nDevOps Team"
-                    emailext body: emailBody, 
+                    emailext body: ''''<a href="${BUILD_URL}input"> Click here to approve</a>''', 
                             subject: "Build Approval Request || Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}", 
                             to: "snehalgawde724@gmail.com",
                             mimeType: 'text/html'
@@ -29,8 +28,8 @@ pipeline {
                                     submitterParameter: 'submitter',
                                     submitter: 'Snehal',
                                     parameters: [
-                                        [$class: 'TextParameterDefinition', defaultValue: 'sit', description: 'Environment', name:'env'],
-                                        [$class: 'TextParameterDefinition', defaultValue: 'k8s', description: 'Target', name:'target']
+                                        [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name:'env'],
+                                        [$class: 'TextParameterDefinition', description: 'Target', name:'target']
                                     ]
                     echo ("Env: "+userInput['env'])
                     echo ("Target: "+userInput['target']) 
