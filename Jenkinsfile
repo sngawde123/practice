@@ -13,10 +13,11 @@ pipeline {
         stage("Approval") {
             steps {
                 script {
-                    emailext body: ''''<a href="${BUILD_URL}input"> Click here to approve</a>''', 
-                            subject: "Build Approval Request || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                            to: "snehalgawde724@gmail.com",
-                            mimeType: 'text/html'
+                    emailBody = "Hello,\n\n\n\nThere is a new commit in github.\n\nPlease provide your decision to build or abort by following the link: ${env.BUILD_URL}\n\n\n\nThanks,\n\nDevOps Team"
+                    emailext body: emailBody, 
+                    subject: "Build Approval Request || Pipeline Details: ${currentBuild.fullDisplayName}", 
+                    to: "snehalgawde724@gmail.com",
+                    mimeType: 'text/html'
 
                     def userInput = input id: 'userInput',
                                     message: 'Do you want to approve?',
