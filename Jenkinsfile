@@ -16,7 +16,7 @@ pipeline {
         stage("Approval") {
             steps {
                 script {
-                    emailBody = "Hello,\n\nThere is a new commit in github.\nPlease provide your decision to build or abort by following the link: ${env.BUILD_URL}\n\n\n\nThanks,\nDevOps Team"
+                    emailBody = "Hello,\n\nThere is a new commit in github.\n\nPlease provide your decision to build or abort by following the link: ${env.BUILD_URL}\n\n\n\nThanks,\nDevOps Team"
                     emailext body: emailBody, 
                     subject: "Build Approval Request || Pipeline Details: ${currentBuild.fullDisplayName}", 
                     to: "snehalgawde724@gmail.com",
