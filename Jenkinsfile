@@ -1,7 +1,4 @@
 properties([
-    pipelineTriggers([pollSCM('H/2 * * * *')])
-])
-properties([
     parameters([
         booleanParam(description: 'Select it if email notification is required post pipeline completion', name: 'SEND_EMAIL'), 
         string(description: 'Enter recipient email address', name: 'Recipient_IDs')
