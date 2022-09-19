@@ -10,27 +10,6 @@ pipeline {
         PATH = "$PATH:/etc/maven/apache-maven-3.8.6/bin"
     }
     stages {
-        stage("Approval") {
-            steps {
-                script {
-                    emailBody = "Hello,\n\nThere is a new commit in github.\n\nPlease provide your decision to build or abort by following the link: ${env.BUILD_URL}\n\n\n\nThanks,\nDevOps Team"
-                    emailext body: emailBody, 
-                    subject: "Build Approval Request || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                    to: "snehalgawde724@gmail.com",
-                    mimeType: 'text/plain'
-
-                    def userInput = input id: 'userInput',
-                                    message: 'Do you want to approve?',
-                                    submitterParameter: 'submitter',
-                                    submitter: 'Snehal',
-                                    parameters: [
-                                        [$class: 'TextParameterDefinition', defaultValue: 'dev', description: 'Environment', name:'env'],
-                                    ]
-                
-                    echo ("Submitted by: "+userInput['submitter'])
-                }
-            }
-        }
         stage('Build') {
             steps {
                 script {
