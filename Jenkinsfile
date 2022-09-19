@@ -1,9 +1,3 @@
-properties([
-    parameters([
-        booleanParam(description: 'Select it if email notification is required post pipeline completion', name: 'SEND_EMAIL'), 
-        string(description: 'Enter recipient email address', name: 'Recipient_IDs')
-        ])
-])
 pipeline {
     agent any
     environment {
@@ -29,8 +23,6 @@ pipeline {
     post {
         success {
             script{
-                IS_EMAIL_ENABLED = "${params.SEND_EMAIL}"
-                    if(IS_EMAIL_ENABLED == "true") {
                     color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                     fullDisplayName = "${currentBuild.fullDisplayName}"
                     result = "${currentBuild.result}"
@@ -46,15 +38,14 @@ pipeline {
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
                     subject: "Build Status : ${currentBuild.number} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                    to: "${params.Recipient_IDs}"
+                    to: snehalgawde724@gmail.com
                     mimeType: 'text/html'
-                }
+                
             }
         }
         failure {
             script {
-                IS_EMAIL_ENABLED = "${params.SEND_EMAIL}"
-                if(IS_EMAIL_ENABLED == "true") {
+               
                     color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                     fullDisplayName = "${currentBuild.fullDisplayName}"
                     result = "${currentBuild.result}"
@@ -70,15 +61,14 @@ pipeline {
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
                     subject: "Current Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
-                    to: "${params.Recipient_IDs}"
+                    to: snehalgawde724@gmail.com
                     mimeType: 'text/html'
-                }
+               
             }
         }
         aborted {
             script {
-                IS_EMAIL_ENABLED = "${params.SEND_EMAIL}"
-                if(IS_EMAIL_ENABLED == "true") {
+              
                     color = (currentBuild.result == "SUCCESS") ? "Green" : "Red"
                     fullDisplayName = "${currentBuild.fullDisplayName}"
                     result = "${currentBuild.result}"
@@ -94,9 +84,9 @@ pipeline {
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
                     subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
-                    to: "${params.Recipient_IDs}"
+                    to: snehalgawde724@gmail.com
                     mimeType: 'text/html'
-                }
+              
             }
         }   
     }
