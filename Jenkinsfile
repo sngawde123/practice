@@ -38,7 +38,7 @@ pipeline {
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
                     subject: "Build Status : ${currentBuild.number} || Pipeline Details: ${currentBuild.fullDisplayName}", 
-                    to: snehalgawde724@gmail.com
+                    to: "snehalgawde724@gmail.com",
                     mimeType: 'text/html'
                 
             }
@@ -61,7 +61,7 @@ pipeline {
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
                     subject: "Current Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
-                    to: snehalgawde724@gmail.com
+                    to: "snehalgawde724@gmail.com",
                     mimeType: 'text/html'
                
             }
@@ -84,7 +84,7 @@ pipeline {
                     emailext attachLog: true, 
                     body: htmlBodyHead + htmlBody,
                     subject: "Build Status : ${currentBuild.result} || Pipeline Details: ${currentBuild.fullDisplayName}",
-                    to: snehalgawde724@gmail.com
+                    to: "snehalgawde724@gmail.com",
                     mimeType: 'text/html'
               
             }
