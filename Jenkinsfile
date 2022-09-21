@@ -33,12 +33,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                script {
+                    sh "mvn clean package"
+                }
             }
-        }
         stage("SpnarQube analysis") {
             steps {
-                withSonarQubeEnv("sonarqube-8.9.2") {
+                withSonarQubeEnv("sonarqube-8.9.9") {
                     sh "mvn sonar:sonar"
                 }        
             }
