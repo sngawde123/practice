@@ -7,7 +7,7 @@ properties([
 pipeline {
     agent any
     environment {
-        PATH = "$PATH:/etc/maven/apache-maven-3.8.4/bin"
+        PATH = "$PATH:/etc/maven/apache-maven-3.8.6/bin"
     }
     stages {
         stage("Approval") {
@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "mvn clean package"
+                    sh 'mvn clean package'
                 }
             }
         stage("SpnarQube analysis") {
